@@ -104,3 +104,90 @@ INSERT INTO Song
 	("Let Me Back In", 1007, "04/18/2011", 2, 33, 23)
 	;
 	*/
+	/*
+	Doesnt work
+	Select g."Label", COUNT(al."AlbumId") AS AlbumCount
+	From "Genre" g
+	join "Album" al  ON al."GenreId" = g."GenreId"
+	group by g. "Label"
+	order by AlbumCount DESC
+	;
+	*/
+	;
+	/*
+	SELECT al.TItle,
+	MAX(al.AlbumLength)
+	FROM Album al
+	;
+	*/
+;
+	--5
+	/*
+SELECT a.Title, s.Title , ar.ArtistName
+FROM Song s 
+LEFT JOIN Album a 
+ON s.AlbumId = a.AlbumId
+JOIN Artist ar
+on s.ArtistId = ar.ArtistId
+WHERE ar.ArtistId = 33
+;
+*/
+
+--6 Write a SELECT statement to display how many songs exist for each album. 
+--You'll need to use the COUNT() function and the GROUP BY keyword sequence.
+/*
+SELECT al.Title, Count(s.AlbumId) AS SongCount
+FROM Album al
+Join Song s ON s.AlbumId = al.AlbumId
+Group By al.Title
+Order by SongCount desc
+;
+*/
+--7 Write a SELECT statement to display how many songs exist for each artist. 
+--You'll need to use the COUNT() function and the GROUP BY keyword sequence.
+/*
+;
+SELECT a.ArtistName, Count(s.ArtistId) AS SongCount
+FROM Artist a
+Join Song s ON s.ArtistId = a.ArtistId
+Group By a.ArtistName
+Order by SongCount desc
+;
+*/
+--8 Write a SELECT statement to display how many songs exist for each genre. 
+--You'll need to use the COUNT() function and the GROUP BY keyword sequence.
+/*
+;
+Select g."Label", COUNT(al."AlbumId") AS AlbumCount
+From "Genre" g
+join "Album" al  ON al."GenreId" = g."GenreId"
+group by g. "Label"
+order by AlbumCount DESC
+;
+*/
+
+--9 Using MAX() function, write a select statement to find the album with the longest duration.
+-- The result should display the album title and the duration.
+/*
+;
+SELECT al.TItle,
+MAX(al.AlbumLength)
+FROM Album al
+;
+*/
+
+--10 Using MAX() function, write a select statement to find the song with the longest duration. 
+--The result should display the song title and the duration.
+
+;
+SELECT s.Title,
+MAX(s.SongLength),
+al.Title
+FROM Song s
+JOIN Album al
+on s.AlbumId = al.AlbumId
+
+;
+
+--11 Modify the previous query to also display the title of the album.
+
